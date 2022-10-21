@@ -4,6 +4,7 @@
 using namespace std;
 
 class LibraryItem {
+public: LibraryItem(){}
 public: LibraryItem(bool On_Hand) {
 	on_hand = On_Hand;
 }
@@ -22,6 +23,7 @@ public: Book(string Name, string Language, string Author, int Pages, string Isbn
 	genre = Genre;
 	on_hand = On_Hand;
 }
+public: Book() {}
 public:
 	string name;
 	string language;
@@ -46,6 +48,7 @@ public: Audio_Book(string Name, string Language, string Author, string Speaker, 
 	location = Location;
 	genre = Genre;
 }
+public: Audio_Book() {}
 public:
 	string name;
 	string language;
@@ -69,6 +72,7 @@ public: DVD(string Name, string Language, string Release_Date, string Duration, 
 	location = Location;
 	genre = Genre;
 }
+public: DVD(){}
 public:
 	string name;
 	string language;
@@ -91,6 +95,7 @@ public: VHS(string Name, string Language, string Release_Date, string Duration, 
 	genre = Genre;
 }
 public:
+public: VHS() {}
 	string name;
 	string language;
 	string release_date;
@@ -111,7 +116,7 @@ void item_create_info() {
 	cout << "What item would you like to add?" << endl;
 	cout << "Press 1 for a book. Press 2 for an audio book. Press 3 for a DVD. Press 4 for a VHS. Press 5 to exit." << endl;
 }
-Book createBookScript(Storage storage) {
+Book createBookScript(Book book[]) {
 	string name;
 	string language;
 	string author;
@@ -145,25 +150,25 @@ Book createBookScript(Storage storage) {
 	case 1: {
 		Book book1(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
 		return book1;
-		break;}
+		break; }
 	case 2: {
 		Book book2(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-		return book2;}
+		return book2; }
 	case 3: {
 		Book book3(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-		return book3;}
+		return book3; }
 	case 4: {
 		Book book4(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-		return book4;}
+		return book4; }
 	case 5: {
 		Book book5(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-		return book5;}
+		return book5; }
 	default:
 		break;
 	}
 
 }
-Audio_Book createAudioBookScript() {
+Audio_Book createAudioBookScript(Audio_Book audiobook[]) {
 	string name;
 	string language;
 	string author;
@@ -197,7 +202,7 @@ Audio_Book createAudioBookScript() {
 	Audio_Book audiobook(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
 	return audiobook;
 }
-DVD createDVDScript() {
+DVD createDVDScript(DVD dvd[]) {
 	string name;
 	string language;
 	string release_date;
@@ -225,7 +230,7 @@ DVD createDVDScript() {
 	DVD dvd(name, language, release_date, duration, location, genre, previous_owner, on_hand);
 	return dvd;
 }
-VHS createVHSScript() {
+VHS createVHSScript(VHS vhs[]) {
 	string name;
 	string language;
 	string release_date;
@@ -253,14 +258,10 @@ VHS createVHSScript() {
 	VHS vhs(name, language, release_date, duration, language, genre, previous_owner, on_hand);
 	return vhs;
 }
-
+/*
 class Storage {
 public:
 	Storage() {}
-	Book bookStorage[100];
-	Audio_Book audioBookStorage[100];
-	DVD dvdStorage[100];
-	VHS vhsStorage[100];
 public:
 	void storeItem(Book book) {
 		int len = sizeof(bookStorage) / sizeof(bookStorage[0]);
@@ -344,12 +345,15 @@ public:
 		}
 	};
 };
-
+*/
 int main() {
+	Book bookStorage[100];
+	Audio_Book audioBookStorage[100];
+	DVD dvdStorage[100];
+	VHS vhsStorage[100];
 	int userInput;
 	bool runningProgram = true;
 	bool runningAddBook = true;
-	Storage storage;
 	cout << "Welcome to the Library's Manifest!" << endl;
 	help_info();
 	while (runningProgram) {
@@ -360,7 +364,7 @@ int main() {
 			while (runningAddBook) {
 				cin >> userInput;
 				if (userInput == 1) {
-					createBookScript(storage);
+					//createBookScript();
 				}
 				else if (userInput == 2) {
 					continue;
