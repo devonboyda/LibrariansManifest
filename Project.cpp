@@ -139,6 +139,41 @@ void addNewBook() {
 	cin >> language;
 
 
+	string author;
+	cout << "You're creating a new book" << endl;
+	cout << "Enter the author of the book: " << endl;
+	cin >> author;
+
+	string edition;
+	cout << "You're creating a new book" << endl;
+	cout << "Enter the edition of the book: " << endl;
+	cin >> edition;
+
+
+	string publication_date;
+	cout << "You're creating a new book" << endl;
+	cout << "Enter the publication_date of the book: " << endl;
+	cin >> publication_date;
+
+
+	int pages;
+	cout << "You're creating a new book" << endl;
+	cout << "Enter the pages of the book: " << endl;
+	cin >> pages;
+
+
+	string isbn;
+	cout << "You're creating a new book" << endl;
+	cout << "Enter the isbn of the book: " << endl;
+	cin >> isbn;
+
+
+	string location;
+	cout << "You're creating a new book" << endl;
+	cout << "Enter the location of the book: " << endl;
+	cin >> location;
+
+
 	//Fantasy(language, etc.etc.);
 
 
