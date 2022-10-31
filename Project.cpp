@@ -23,7 +23,7 @@ public:
 };
 
 class Book : public LibraryItem {
-Book() {}
+	Book() {}
 public: Book(string Name, string Language, string Author, int Pages, string Isbn, string Location, string Genre, string previous_owner, bool On_Hand) : LibraryItem(on_hand) {
 	name = Name;
 	language = Language;
@@ -42,13 +42,16 @@ public:
 	string isbn;
 	string location;
 	string genre;
+	void check_out() {
+		on_hand = false;
+	}
 
 private:
 	string previous_owner;
 };
 
 class Audio_Book : public LibraryItem {
-Audio_Book() {}
+	Audio_Book() {}
 public: Audio_Book(string Name, string Language, string Author, string Speaker, int Pages, string Isbn, string Location, string Genre, string previous_owner, bool on_hand) : LibraryItem(on_hand) {
 	name = Name;
 	language = Language;
@@ -74,7 +77,7 @@ private:
 };
 
 class DVD : public LibraryItem {
-DVD() {}
+	DVD() {}
 public: DVD(string Name, string Language, string Release_Date, string Duration, string Location, string Genre, string previous_owner, bool on_hand) : LibraryItem(on_hand) {
 	name = Name;
 	language = Language;
@@ -105,12 +108,12 @@ public: VHS(string Name, string Language, string Release_Date, string Duration, 
 	genre = Genre;
 }
 public:
-	  string name;
-	  string language;
-	  string release_date;
-	  string duration;
-	  string location;
-	  string genre;
+	string name;
+	string language;
+	string release_date;
+	string duration;
+	string location;
+	string genre;
 
 private:
 	string previous_owner;
@@ -183,48 +186,48 @@ vector<Book> createBookScript(vector<Book>bookStorage, int size) {
 	cout << "Enter the previous owner's information: " << endl;
 	cin >> previous_owner;
 	switch (size) {
-		case 0: {
-			Book book(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-			bookStorage.push_back(book);
-			cout <<  endl << endl <<  "You have successfully added \"" << book.name << "\" to the Library's Manifest" << endl << endl;
-			return bookStorage;
-			break;
-		}
-		case 1: {
-			Book book1(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-			bookStorage.push_back(book1);
-			cout <<  endl << endl <<  "You have successfully added \"" << book1.name << "\" to the Library's Manifest" << endl << endl;
-			return bookStorage;
-			break;
-		}
-		case 2: {
-			Book book2(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-			bookStorage.push_back(book2);
-			cout <<  endl << endl <<  "You have successfully added \"" << book2.name << "\" to the Library's Manifest" << endl << endl;
-			return bookStorage;
-			break;
-		}
-		case 3: {
-			Book book3(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-			bookStorage.push_back(book3);
-			cout <<  endl << endl <<  "You have successfully added \"" << book3.name << "\" to the Library's Manifest" << endl << endl;
-			return bookStorage;
-			break;
-		}
-		case 4: {
-			Book book4(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-			bookStorage.push_back(book4);
-			cout <<  endl << endl <<  "You have successfully added \"" << book4.name << "\" to the Library's Manifest" << endl << endl;
-			return bookStorage;
-			break;
-		}
-		case 5: {
-			Book book5(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
-			bookStorage.push_back(book5);
-			cout <<  endl << endl <<  "You have successfully added \"" << book5.name << "\" to the Library's Manifest" << endl << endl;
-			return bookStorage;
-			break;
-		}
+	case 0: {
+		Book book(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
+		bookStorage.push_back(book);
+		cout << endl << endl << "You have successfully added \"" << book.name << "\" to the Library's Manifest" << endl << endl;
+		return bookStorage;
+		break;
+	}
+	case 1: {
+		Book book1(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
+		bookStorage.push_back(book1);
+		cout << endl << endl << "You have successfully added \"" << book1.name << "\" to the Library's Manifest" << endl << endl;
+		return bookStorage;
+		break;
+	}
+	case 2: {
+		Book book2(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
+		bookStorage.push_back(book2);
+		cout << endl << endl << "You have successfully added \"" << book2.name << "\" to the Library's Manifest" << endl << endl;
+		return bookStorage;
+		break;
+	}
+	case 3: {
+		Book book3(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
+		bookStorage.push_back(book3);
+		cout << endl << endl << "You have successfully added \"" << book3.name << "\" to the Library's Manifest" << endl << endl;
+		return bookStorage;
+		break;
+	}
+	case 4: {
+		Book book4(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
+		bookStorage.push_back(book4);
+		cout << endl << endl << "You have successfully added \"" << book4.name << "\" to the Library's Manifest" << endl << endl;
+		return bookStorage;
+		break;
+	}
+	case 5: {
+		Book book5(name, language, author, pages, isbn, location, genre, previous_owner, on_hand);
+		bookStorage.push_back(book5);
+		cout << endl << endl << "You have successfully added \"" << book5.name << "\" to the Library's Manifest" << endl << endl;
+		return bookStorage;
+		break;
+	}
 	}
 }
 vector<Audio_Book> createAudioBookScript(vector<Audio_Book> audioBookStorage, int size) {
@@ -260,48 +263,48 @@ vector<Audio_Book> createAudioBookScript(vector<Audio_Book> audioBookStorage, in
 	cin >> previous_owner;
 
 	switch (size) {
-		case 0: {
-			Audio_Book audiobook(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
-			audioBookStorage.push_back(audiobook);
-			cout <<  endl << endl <<  "You have successfully added \"" << audiobook.name << "\" to the Library's Manifest" << endl << endl;
-			return audioBookStorage;
-			break;
-		}
-		case 1: {
-			Audio_Book audiobook1(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
-			audioBookStorage.push_back(audiobook1);
-			cout <<  endl << endl <<  "You have successfully added \"" << audiobook1.name << "\" to the Library's Manifest" << endl << endl;
-			return audioBookStorage;
-			break;
-		}
-		case 2: {
-			Audio_Book audiobook2(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
-			audioBookStorage.push_back(audiobook2);
-			cout <<  endl << endl <<  "You have successfully added \"" << audiobook2.name << "\" to the Library's Manifest" << endl << endl;
-			return audioBookStorage;
-			break;
-		}
-		case 3: {
-			Audio_Book audiobook3(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
-			audioBookStorage.push_back(audiobook3);
-			cout <<  endl << endl <<  "You have successfully added \"" << audiobook3.name << "\" to the Library's Manifest" << endl << endl;
-			return audioBookStorage;
-			break;
-		}
-		case 4: {
-			Audio_Book audiobook4(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
-			audioBookStorage.push_back(audiobook4);
-			cout <<  endl << endl <<  "You have successfully added \"" << audiobook4.name << "\" to the Library's Manifest" << endl << endl;
-			return audioBookStorage;
-			break;
-		}
-		case 5: {
-			Audio_Book audiobook5(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
-			audioBookStorage.push_back(audiobook5);
-			cout <<  endl << endl <<  "You have successfully added \"" << audiobook5.name << "\" to the Library's Manifest" << endl << endl;
-			return audioBookStorage;
-			break;
-		}
+	case 0: {
+		Audio_Book audiobook(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
+		audioBookStorage.push_back(audiobook);
+		cout << endl << endl << "You have successfully added \"" << audiobook.name << "\" to the Library's Manifest" << endl << endl;
+		return audioBookStorage;
+		break;
+	}
+	case 1: {
+		Audio_Book audiobook1(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
+		audioBookStorage.push_back(audiobook1);
+		cout << endl << endl << "You have successfully added \"" << audiobook1.name << "\" to the Library's Manifest" << endl << endl;
+		return audioBookStorage;
+		break;
+	}
+	case 2: {
+		Audio_Book audiobook2(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
+		audioBookStorage.push_back(audiobook2);
+		cout << endl << endl << "You have successfully added \"" << audiobook2.name << "\" to the Library's Manifest" << endl << endl;
+		return audioBookStorage;
+		break;
+	}
+	case 3: {
+		Audio_Book audiobook3(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
+		audioBookStorage.push_back(audiobook3);
+		cout << endl << endl << "You have successfully added \"" << audiobook3.name << "\" to the Library's Manifest" << endl << endl;
+		return audioBookStorage;
+		break;
+	}
+	case 4: {
+		Audio_Book audiobook4(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
+		audioBookStorage.push_back(audiobook4);
+		cout << endl << endl << "You have successfully added \"" << audiobook4.name << "\" to the Library's Manifest" << endl << endl;
+		return audioBookStorage;
+		break;
+	}
+	case 5: {
+		Audio_Book audiobook5(name, language, author, speaker, pages, isbn, location, genre, previous_owner, on_hand);
+		audioBookStorage.push_back(audiobook5);
+		cout << endl << endl << "You have successfully added \"" << audiobook5.name << "\" to the Library's Manifest" << endl << endl;
+		return audioBookStorage;
+		break;
+	}
 	}
 }
 vector<DVD> createDVDScript(vector<DVD>dvdStorage, int size) {
@@ -331,48 +334,48 @@ vector<DVD> createDVDScript(vector<DVD>dvdStorage, int size) {
 	cin >> previous_owner;
 
 	switch (size) {
-		case 0: {
-			DVD dvd(name, language, release_date, duration, location, genre, previous_owner, on_hand);
-			dvdStorage.push_back(dvd);
-			cout <<  endl << endl <<  "You have successfully added \"" << dvd.name << "\" to the Library's Manifest" << endl << endl;
-			return dvdStorage;
-			break;
-		}
-		case 1: {
-			DVD dvd1(name, language, release_date, duration, location, genre, previous_owner, on_hand);
-			dvdStorage.push_back(dvd1);
-			cout <<  endl << endl <<  "You have successfully added \"" << dvd1.name << "\" to the Library's Manifest" << endl << endl;
-			return dvdStorage;
-			break;
-		}
-		case 2: {
-			DVD dvd2(name, language, release_date, duration, location, genre, previous_owner, on_hand);
-			dvdStorage.push_back(dvd2);
-			cout <<  endl << endl <<  "You have successfully added \"" << dvd2.name << "\" to the Library's Manifest" << endl << endl;
-			return dvdStorage;
-			break;
-		}
-		case 3: {
-			DVD dvd3(name, language, release_date, duration, location, genre, previous_owner, on_hand);
-			dvdStorage.push_back(dvd3);
-			cout <<  endl << endl <<  "You have successfully added \"" << dvd3.name << "\" to the Library's Manifest" << endl << endl;
-			return dvdStorage;
-			break;
-		}
-		case 4: {
-			DVD dvd4(name, language, release_date, duration, location, genre, previous_owner, on_hand);
-			dvdStorage.push_back(dvd4);
-			cout <<  endl << endl <<  "You have successfully added \"" << dvd4.name << "\" to the Library's Manifest" << endl << endl;
-			return dvdStorage;
-			break;
-		}
-		case 5: {
-			DVD dvd5(name, language, release_date, duration, location, genre, previous_owner, on_hand);
-			dvdStorage.push_back(dvd5);
-			cout <<  endl << endl <<  "You have successfully added \"" << dvd5.name << "\" to the Library's Manifest" << endl << endl;
-			return dvdStorage;
-			break;
-		}
+	case 0: {
+		DVD dvd(name, language, release_date, duration, location, genre, previous_owner, on_hand);
+		dvdStorage.push_back(dvd);
+		cout << endl << endl << "You have successfully added \"" << dvd.name << "\" to the Library's Manifest" << endl << endl;
+		return dvdStorage;
+		break;
+	}
+	case 1: {
+		DVD dvd1(name, language, release_date, duration, location, genre, previous_owner, on_hand);
+		dvdStorage.push_back(dvd1);
+		cout << endl << endl << "You have successfully added \"" << dvd1.name << "\" to the Library's Manifest" << endl << endl;
+		return dvdStorage;
+		break;
+	}
+	case 2: {
+		DVD dvd2(name, language, release_date, duration, location, genre, previous_owner, on_hand);
+		dvdStorage.push_back(dvd2);
+		cout << endl << endl << "You have successfully added \"" << dvd2.name << "\" to the Library's Manifest" << endl << endl;
+		return dvdStorage;
+		break;
+	}
+	case 3: {
+		DVD dvd3(name, language, release_date, duration, location, genre, previous_owner, on_hand);
+		dvdStorage.push_back(dvd3);
+		cout << endl << endl << "You have successfully added \"" << dvd3.name << "\" to the Library's Manifest" << endl << endl;
+		return dvdStorage;
+		break;
+	}
+	case 4: {
+		DVD dvd4(name, language, release_date, duration, location, genre, previous_owner, on_hand);
+		dvdStorage.push_back(dvd4);
+		cout << endl << endl << "You have successfully added \"" << dvd4.name << "\" to the Library's Manifest" << endl << endl;
+		return dvdStorage;
+		break;
+	}
+	case 5: {
+		DVD dvd5(name, language, release_date, duration, location, genre, previous_owner, on_hand);
+		dvdStorage.push_back(dvd5);
+		cout << endl << endl << "You have successfully added \"" << dvd5.name << "\" to the Library's Manifest" << endl << endl;
+		return dvdStorage;
+		break;
+	}
 	}
 }
 vector<VHS> createVHSScript(vector<VHS>vhsStorage, int size) {
@@ -403,48 +406,48 @@ vector<VHS> createVHSScript(vector<VHS>vhsStorage, int size) {
 	VHS vhs(name, language, release_date, duration, language, genre, previous_owner, on_hand);
 
 	switch (size) {
-		case 0: {
-			VHS vhs(name, language, release_date, duration, language, genre, previous_owner, on_hand);
-			vhsStorage.push_back(vhs);
-			cout << endl << endl << "You have successfully added \"" << vhs.name << "\" to the Library's Manifest" << endl << endl;
-			return vhsStorage;
-			break;
-		}
-		case 1: {
-			VHS vhs1(name, language, release_date, duration, language, genre, previous_owner, on_hand);
-			vhsStorage.push_back(vhs1);
-			cout << endl << endl << "You have successfully added \"" << vhs1.name << "\" to the Library's Manifest" << endl << endl;
-			return vhsStorage;
-			break;
-		}
-		case 2: {
-			VHS vhs2(name, language, release_date, duration, language, genre, previous_owner, on_hand);
-			vhsStorage.push_back(vhs2);
-			cout << endl << endl << "You have successfully added \"" << vhs2.name << "\" to the Library's Manifest" << endl << endl;
-			return vhsStorage;
-			break;
-		}
-		case 3: {
-			VHS vhs3(name, language, release_date, duration, language, genre, previous_owner, on_hand);
-			vhsStorage.push_back(vhs3);
-			cout <<  endl << endl <<  "You have successfully added \"" << vhs3.name << "\" to the Library's Manifest" << endl << endl;
-			return vhsStorage;
-			break;
-		}
-		case 4: {
-			VHS vhs4(name, language, release_date, duration, language, genre, previous_owner, on_hand);
-			vhsStorage.push_back(vhs4);
-			cout <<  endl << endl <<  "You have successfully added \"" << vhs4.name << "\" to the Library's Manifest" << endl << endl;
-			return vhsStorage;
-			break;
-		}
-		case 5: {
-			VHS vhs5(name, language, release_date, duration, language, genre, previous_owner, on_hand);
-			vhsStorage.push_back(vhs5);
-			cout <<  endl << endl <<  "You have successfully added \"" << vhs5.name << "\" to the Library's Manifest" << endl << endl;
-			return vhsStorage;
-			break;
-		}
+	case 0: {
+		VHS vhs(name, language, release_date, duration, language, genre, previous_owner, on_hand);
+		vhsStorage.push_back(vhs);
+		cout << endl << endl << "You have successfully added \"" << vhs.name << "\" to the Library's Manifest" << endl << endl;
+		return vhsStorage;
+		break;
+	}
+	case 1: {
+		VHS vhs1(name, language, release_date, duration, language, genre, previous_owner, on_hand);
+		vhsStorage.push_back(vhs1);
+		cout << endl << endl << "You have successfully added \"" << vhs1.name << "\" to the Library's Manifest" << endl << endl;
+		return vhsStorage;
+		break;
+	}
+	case 2: {
+		VHS vhs2(name, language, release_date, duration, language, genre, previous_owner, on_hand);
+		vhsStorage.push_back(vhs2);
+		cout << endl << endl << "You have successfully added \"" << vhs2.name << "\" to the Library's Manifest" << endl << endl;
+		return vhsStorage;
+		break;
+	}
+	case 3: {
+		VHS vhs3(name, language, release_date, duration, language, genre, previous_owner, on_hand);
+		vhsStorage.push_back(vhs3);
+		cout << endl << endl << "You have successfully added \"" << vhs3.name << "\" to the Library's Manifest" << endl << endl;
+		return vhsStorage;
+		break;
+	}
+	case 4: {
+		VHS vhs4(name, language, release_date, duration, language, genre, previous_owner, on_hand);
+		vhsStorage.push_back(vhs4);
+		cout << endl << endl << "You have successfully added \"" << vhs4.name << "\" to the Library's Manifest" << endl << endl;
+		return vhsStorage;
+		break;
+	}
+	case 5: {
+		VHS vhs5(name, language, release_date, duration, language, genre, previous_owner, on_hand);
+		vhsStorage.push_back(vhs5);
+		cout << endl << endl << "You have successfully added \"" << vhs5.name << "\" to the Library's Manifest" << endl << endl;
+		return vhsStorage;
+		break;
+	}
 	}
 }
 
@@ -493,7 +496,7 @@ void printItemInfo(Book book) {
 	cout << "ISBN: " << book.isbn << endl;
 	cout << "Location: " << book.location << endl;
 	cout << "Genre: " << book.genre << endl;
-	cout << "Is it on hand: " << book.on_hand << endl;
+	cout << "How many on hand: " << book.on_hand << endl;
 	cout << "------------------------------------------" << endl;
 }
 void printItemInfo(Audio_Book audiobook) {
@@ -506,7 +509,7 @@ void printItemInfo(Audio_Book audiobook) {
 	cout << "ISBN: " << audiobook.isbn << endl;
 	cout << "Location: " << audiobook.location << endl;
 	cout << "Genre: " << audiobook.genre << endl;
-	cout << "Is it on hand: " << audiobook.on_hand << endl;
+	cout << "How many on hand: " << audiobook.on_hand << endl;
 	cout << "------------------------------------------" << endl;
 }
 void printItemInfo(DVD dvd) {
@@ -517,7 +520,7 @@ void printItemInfo(DVD dvd) {
 	cout << "Duration: " << dvd.duration << endl;
 	cout << "Location: " << dvd.location << endl;
 	cout << "Genre: " << dvd.genre << endl;
-	cout << "Is it on hand: " << dvd.on_hand << endl;
+	cout << "How many on hand: " << dvd.on_hand << endl;
 	cout << "------------------------------------------" << endl;
 }
 void printItemInfo(VHS vhs) {
@@ -528,7 +531,7 @@ void printItemInfo(VHS vhs) {
 	cout << "Duration: " << vhs.duration << endl;
 	cout << "Location: " << vhs.location << endl;
 	cout << "Genre: " << vhs.genre << endl;
-	cout << "Is it on hand: " << vhs.on_hand << endl;
+	cout << "How many on hand: " << vhs.on_hand << endl;
 	cout << "------------------------------------------" << endl;
 }
 
@@ -540,6 +543,8 @@ void searchSpecificBook(vector<Book> bookStorage, string userInputName) {
 		if (tempBook.name == userInputName) {
 			printItemInfo(tempBook);
 			found = true;
+			bookStorage.at(i).check_out();
+			delete *tempBook;
 		}
 	}
 	if (!found) {
@@ -696,7 +701,7 @@ int main() {
 						if (userInput == 1) {
 							cout << "Enter the name of the book that you are searching for" << endl;
 							cin >> userInputName;
-							searchSpecificBook(bookStorage,userInputName);
+							searchSpecificBook(bookStorage, userInputName);
 							help_info();
 							runningSpecificSearch = false;
 							break;
