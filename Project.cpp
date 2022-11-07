@@ -20,6 +20,9 @@ public: LibraryItem(bool On_Hand) {
 }
 public:
 	bool on_hand;
+	void check_out() {
+		on_hand = false;
+	}
 };
 
 class Book : public LibraryItem {
@@ -42,10 +45,6 @@ public:
 	string isbn;
 	string location;
 	string genre;
-	void check_out() {
-		on_hand = false;
-	}
-
 private:
 	string previous_owner;
 };
@@ -462,7 +461,7 @@ void spillBookStorage(vector<Book>bookStorage) {
 }
 void spillAudioBookStorage(vector<Audio_Book> audioBookStorage) {
 	cout << "------------------------------------------" << endl;
-	cout << "Books on hand: " << endl;
+	cout << "Audio Book on hand: " << endl;
 	for (int i = 0; i < audioBookStorage.size(); i++) {
 		Audio_Book temp = audioBookStorage.at(i);
 		cout << temp.name << "    ";
@@ -471,7 +470,7 @@ void spillAudioBookStorage(vector<Audio_Book> audioBookStorage) {
 }
 void spillDVDStorage(vector<DVD> dvdStorage) {
 	cout << "------------------------------------------" << endl;
-	cout << "Books on hand: " << endl;
+	cout << "DVD on hand: " << endl;
 	for (int i = 0; i < dvdStorage.size(); i++) {
 		DVD temp = dvdStorage.at(i);
 		cout << temp.name << "    ";
@@ -480,7 +479,7 @@ void spillDVDStorage(vector<DVD> dvdStorage) {
 }
 void spillVHSStorage(vector<VHS> vhsStorage) {
 	cout << "------------------------------------------" << endl;
-	cout << "Books on hand: " << endl;
+	cout << "VHS's on hand: " << endl;
 	for (int i = 0; i < vhsStorage.size(); i++) {
 		VHS temp = vhsStorage.at(i);
 		cout << temp.name << "    ";
@@ -535,62 +534,112 @@ void printItemInfo(VHS vhs) {
 	cout << "------------------------------------------" << endl;
 }
 
-void searchSpecificBook(vector<Book> bookStorage, string userInputName) {
+void searchSpecificBook(vector<Book> &bookStorage, string userInputName) {
 	bool found = false;
 	int size = bookStorage.size();
 	for (int i = 0; i < size; i++) {
-		Book tempBook = bookStorage.at(i);
-		if (tempBook.name == userInputName) {
-			printItemInfo(tempBook);
+		if (bookStorage.at(i).name == userInputName) {
+			printItemInfo(bookStorage.at(i));
 			found = true;
-			bookStorage.at(i).check_out();
-			delete *tempBook;
+			if (bookStorage.at(i).on_hand == true) {
+				cout << "Press 1 to check this book out or press anything else to exit to main menu: " << endl;
+				string uinput;
+				cin >> uinput;
+				if (uinput == "1") {
+					bookStorage.at(i).check_out();
+					cout << "You have checked out \"" << bookStorage.at(i).name << "\"." << endl;
+				}
+				else {
+					break;
+				}
+			}
 		}
 	}
 	if (!found) {
+		cout << endl << "----------------------------------------------------------------------------------------" << endl;
 		cout << "The book name that you entered was not found" << endl;
+		cout << "----------------------------------------------------------------------------------------" << endl << endl;
 	}
 }
-void searchSpecificAudioBook(vector<Audio_Book> audioBookStorage, string userInputName) {
+void searchSpecificAudioBook(vector<Audio_Book> &audioBookStorage, string userInputName) {
 	bool found = false;
 	int size = audioBookStorage.size();
 	for (int i = 0; i < size; i++) {
-		Audio_Book tempAudioBook = audioBookStorage.at(i);
-		if (tempAudioBook.name == userInputName) {
-			printItemInfo(tempAudioBook);
+		if (audioBookStorage.at(i).name == userInputName) {
+			printItemInfo(audioBookStorage.at(i));
 			found = true;
+			if (audioBookStorage.at(i).on_hand == true) {
+				cout << "Press 1 to check this audio book out or press anything else to exit to main menu: " << endl;
+				string uinput;
+				cin >> uinput;
+				if (uinput == "1") {
+					audioBookStorage.at(i).check_out();
+					cout << "You have checked out \"" << audioBookStorage.at(i).name << "\"." << endl;
+				}
+				else {
+					break;
+				}
+			}
 		}
 	}
 	if (!found) {
+		cout << endl << "----------------------------------------------------------------------------------------" << endl;
 		cout << "The audio book name that you entered was not found" << endl;
+		cout << "----------------------------------------------------------------------------------------" << endl << endl;
 	}
 }
-void searchSpecificDVD(vector<DVD> dvdStorage, string userInputName) {
+void searchSpecificDVD(vector<DVD>& dvdStorage, string userInputName) {
 	bool found = false;
 	int size = dvdStorage.size();
 	for (int i = 0; i < size; i++) {
-		DVD tempDVD = dvdStorage.at(i);
-		if (tempDVD.name == userInputName) {
-			printItemInfo(tempDVD);
+		if (dvdStorage.at(i).name == userInputName) {
+			printItemInfo(dvdStorage.at(i));
 			found = true;
+			if (dvdStorage.at(i).on_hand == true) {
+				cout << "Press 1 to check this dvd out or press anything else to exit to main menu: " << endl;
+				string uinput;
+				cin >> uinput;
+				if (uinput == "1") {
+					dvdStorage.at(i).check_out();
+					cout << "You have checked out \"" << dvdStorage.at(i).name << "\"." << endl;
+				}
+				else {
+					break;
+				}
+			}
 		}
 	}
 	if (!found) {
+		cout << endl << "----------------------------------------------------------------------------------------" << endl;
 		cout << "The dvd name that you entered was not found" << endl;
+		cout << "----------------------------------------------------------------------------------------" << endl << endl;
 	}
 }
-void searchSpecificVHS(vector<VHS> vhsStorage, string userInputName) {
+void searchSpecificVHS(vector<VHS> &vhsStorage, string userInputName) {
 	bool found = false;
 	int size = vhsStorage.size();
 	for (int i = 0; i < size; i++) {
-		VHS vhsBook = vhsStorage.at(i);
-		if (vhsBook.name == userInputName) {
-			printItemInfo(vhsBook);
+		if (vhsStorage.at(i).name == userInputName) {
+			printItemInfo(vhsStorage.at(i));
 			found = true;
+			if (vhsStorage.at(i).on_hand == true) {
+				cout << "Press 1 to check this vhs out or press anything else to exit to main menu: " << endl;
+				string uinput;
+				cin >> uinput;
+				if (uinput == "1") {
+					vhsStorage.at(i).check_out();
+					cout << "You have checked out \"" << vhsStorage.at(i).name << "\"." << endl;
+				}
+				else {
+					break;
+				}
+			}
 		}
 	}
 	if (!found) {
+		cout << endl << "----------------------------------------------------------------------------------------" << endl;
 		cout << "The vhs name that you entered was not found" << endl;
+		cout << "----------------------------------------------------------------------------------------" << endl << endl;
 	}
 }
 
